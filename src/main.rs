@@ -1,22 +1,13 @@
-//! A command-line interface for generating a Fibonacci sequence.
+//! A command-line interface for enforcing coverage thresholds on existing
+//! coverage reports.
+//!
+//! The CLI isn't implemented yet; it only prints the library's status.
 
 fn main() {
-    let matches = clap::Command::new("bonacci")
+    clap::Command::new("coverguard")
         .version(env!("CARGO_PKG_VERSION"))
-        .about("Generate a Fibonacci sequence up to the given number of terms")
-        .arg(
-            clap::arg!([n] "The number of terms")
-                .value_parser(clap::value_parser!(usize))
-                .required(true),
-        )
+        .about("Enforce coverage thresholds on the reports your tests already write")
         .get_matches();
 
-    let n = matches.get_one::<usize>("n").unwrap_or(&0);
-    let output = bonacci::fibonacci_sequence(*n)
-        .iter()
-        .map(ToString::to_string)
-        .collect::<Vec<_>>()
-        .join(" ");
-
-    println!("{output}");
+    println!("{}", coverguard::status());
 }
