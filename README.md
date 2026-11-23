@@ -1,10 +1,8 @@
-# Rust Starter
+# coverguard
 
-A minimal template for building a [Rust](https://www.rust-lang.org/) library with an optional CLI. Ships pre-configured with formatting, linting, 100% test coverage enforcement, pre-commit hooks, and CI.
+A CLI that enforces coverage thresholds on the coverage report your tests already write. It reads the report from a stack's own test command, such as llvm-cov export JSON from `swift test --enable-code-coverage` or [cargo-llvm-cov](https://github.com/taiki-e/cargo-llvm-cov), or a Go cover profile, and fails when per-file, per-directory, or total coverage falls below the configured thresholds. It checks reports and never runs your tests or produces coverage itself.
 
-## Getting Started
-
-Create a new repository from this template on GitHub using [this link](https://github.com/new?template_name=rust-starter&template_owner=threeal), or clone it locally and point it at your own remote.
+This project is at an early stage: the checks aren't implemented yet, and its CLI only prints a placeholder notice.
 
 ## Setup
 
@@ -25,18 +23,6 @@ Install [Lefthook](https://lefthook.dev/) and [dprint](https://dprint.dev/), the
 ```sh
 lefthook install
 ```
-
-## Customizing
-
-Replace or extend the template files to fit your project:
-
-- **`src/`** — Replace the placeholder library, CLI, and tests with your own code.
-- **`Cargo.toml`** — Update the package name, description, version, authors, and other metadata.
-- **`CLAUDE.md`** — Replace with guidance specific to your project.
-- **`LICENSE`** — Replace with your preferred license, or keep the [Unlicense](https://unlicense.org/).
-- **`README.md`** — Replace with a description of your project.
-
-If your project doesn't need a CLI, remove `src/main.rs`, its `exclude-files` entry in `tarpaulin.toml`, and the `clap` dependency in `Cargo.toml`.
 
 ## Development
 
