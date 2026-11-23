@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## About This Repository
 
-coverguard is a Rust library and CLI that reads the coverage report a stack's own test command already writes, such as llvm-cov export JSON or a Go cover profile, and fails when coverage falls below configured thresholds. It checks reports and never runs tests or produces coverage itself. It isn't implemented yet: `src/` holds only a placeholder `status` function and a CLI that prints it.
+coverguard is a Rust library and CLI that reads the coverage report a stack's own test command already writes, such as llvm-cov export JSON or a Go cover profile, and fails when coverage falls below configured thresholds. It checks reports and never runs tests or produces coverage itself. So far it only reads llvm-cov export JSON reports (`src/report.rs`) and checks them against thresholds and exclusions given as CLI arguments (`src/check.rs`); a config file comes later.
 
 ## Gotchas
 
